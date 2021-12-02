@@ -106,3 +106,9 @@ label,h4{
 label{
     font-size: 25px;
 }
+
+strong{
+    font-family: 'Lucida Sans Typewriter';
+    font-size: 30px;
+    color: #F6F0E7;
+}

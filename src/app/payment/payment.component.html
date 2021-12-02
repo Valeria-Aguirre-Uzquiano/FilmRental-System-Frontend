@@ -1,1 +1,34 @@
-<p>payment works!</p>
+<div class="container">
+    <strong id="name">Bienvenido {{getName()}}</strong>
+    <br>
+    <h1>Confirmación de Pago</h1>
+    <br>
+    <div class="row">
+        <div class="col-7">
+            <div class="card mb-3" style="max-width: 1400px;" *ngFor="let films of Carrito;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://picsum.photos/700/400?random" class="img-fluid rounded-start" >
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body text-start">
+                        <h5 class="card-title">{{films.title}}</h5>
+                        <p class="card-text">{{films.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-3">
+            <div class="factura">
+                <h4>Sub Total: {{sum.toFixed(2)}} USD</h4>
+                <h4>Dscto: {{des.toFixed(2)}} USD</h4>
+                <h4>Total: {{total.toFixed(2)}} USD</h4>
+            </div>
+          
+
+        </div>
+
+    </div>
+
+</div>

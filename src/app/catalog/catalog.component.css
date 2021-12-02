@@ -14,7 +14,12 @@
     border-radius: 20px;
 }
 
-a{
+strong{
+    font-family: 'Lucida Sans Typewriter';
+    color: #F6F0E7;
+}
+
+a,.LogOut {
     color: #5B5D52;
     font-family: 'Lucida Sans Typewriter';
     text-decoration: none;
@@ -64,4 +69,29 @@ button:hover {
 
 i{
     font-size: 20px;
+}
+
+.delete{
+    width: 80%;
+    background: none;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #ff4f4f;
+    color: #ff4f4f;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Hoefler Text';
+
+}
+
+.delete:hover {
+    width: 80%;
+    background-color: #ff4f4f;
+    border-style: none;
+    border-radius: 20px;
+    color: #F6F0E7;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Hoefler Text';
+
 }

@@ -110,7 +110,7 @@ export class ShopCartComponent implements OnInit {
   }
 
   back(){
-    this._location.back();
+    this.router.navigateByUrl("/catalog/"+localStorage.getItem('country_ID'));
 
   }
 
@@ -155,6 +155,28 @@ export class ShopCartComponent implements OnInit {
     }else{
       this.router.navigate(['/payment']);
     }
+  }
+
+  getName(){
+    return localStorage.getItem('customer');
+  }
+
+  getCustomer(){
+    
+    if( localStorage.getItem('customer_ID') == ''){
+      return false;
+    }else{
+      return true;
+    }
+    
+  }
+
+  Logout(){
+    localStorage.removeItem('customer_ID');
+    localStorage.removeItem('storage_ID');
+    localStorage.removeItem('address_ID');
+    localStorage.removeItem('customer');
+    window.location.reload();
   }
 }
 

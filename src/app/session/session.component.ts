@@ -40,7 +40,7 @@ export class SessionComponent implements OnInit {
       this.customer = data;
       console.log(this.customer);
       this.loadLocalStorage(this.customer.customer_id, this.customer.first_name, this.customer.last_name);
-      this.router.navigate(['/payment']);
+      this.router.navigate(['/shopcart']);
     });
     
   }
@@ -83,6 +83,7 @@ export class SessionComponent implements OnInit {
   }
 
   InsertCustomer(){
+    var idc: string;
     var ids = localStorage.getItem('storage_ID');
     var jsondata = {
       store_id: parseInt(ids!),
@@ -94,10 +95,45 @@ export class SessionComponent implements OnInit {
     }
 
     console.log(jsondata);
-    this.http.post("http://localhost:8080/customer/addCustomer", jsondata).toPromise().then(data =>{
-      console.log(data);
-      //alert(data);
+    this.http.post("http://localhost:8080/customer/addCustomer", jsondata).toPromise().then((data: any) =>{
+      Object.keys(data).forEach((key) => {
+        console.log(data[key]); 
+        idc = data[key];
+        if(idc != null){
+          alert("Registro exitoso");
+          localStorage.setItem('customer_ID', idc);
+          this.loadLocalStorage(idc, this.firstname, this.lastname);
+          
+        }else{
+          alert("Error en Registrar usuario");
+        }
+      });
+      
     });
+
+    this.router.navigate(['/shopcart']);
+  }
+
+  getName(){
+    return localStorage.getItem('customer');
+  }
+
+  getCustomer(){
+    
+    if( localStorage.getItem('customer_ID') == ''){
+      return false;
+    }else{
+      return true;
+    }
+    
+  }
+
+  Logout(){
+    localStorage.removeItem('customer_ID');
+    localStorage.removeItem('storage_ID');
+    localStorage.removeItem('address_ID');
+    localStorage.removeItem('customer');
+    window.location.reload();
   }
 
 }

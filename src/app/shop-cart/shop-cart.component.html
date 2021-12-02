@@ -2,9 +2,16 @@
     <nav class="navbar">
         <div class="container-fluid">
           <a (click)="back()" class="link">Inicio</a>
-          <a routerLink="/session" >Ingresar</a>
-          <a routerLink="/session" >Crear cuenta</a>
           
+          <div *ngIf=" getCustomer() == false; else Enter">
+            <a routerLink="/session" >Ingresar</a>
+            &nbsp;&nbsp;
+            <a routerLink="/session" >Crear cuenta</a>
+          </div>
+          <ng-template #Enter>
+            <strong> Bienvenido {{getName()}}</strong>
+            <a (click)="Logout()" class="LogOut">Salir  <i class="fas fa-sign-out-alt"></i></a>
+          </ng-template>
         </div>
     </nav>
     <br><br>
@@ -24,8 +31,8 @@
           </form>
         </div>
         <div class="col">
-          <h4>Tota: {{sum}} USD</h4>
-          <h4>Dscto: {{des}} USD</h4>
+          <h4>Total: {{sum.toFixed(2)}} USD</h4>
+          <h4>Dscto: {{des.toFixed(2)}} USD</h4>
           <button (click)="routingPay()">Pagar</button>
         </div>
       </div>
