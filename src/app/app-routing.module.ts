@@ -8,7 +8,7 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
-  {path: 'catalog', component: CatalogComponent},
+  {path: 'catalog/:id', component: CatalogComponent},
   {path: 'session', component: SessionComponent},
   {path: 'shopcart', component: ShopCartComponent},
   {path: 'payment', component: PaymentComponent},

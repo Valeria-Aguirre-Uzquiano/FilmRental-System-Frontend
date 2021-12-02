@@ -6,293 +6,56 @@
             <button class="btn" type="submit">Buscar</button>
           </form>
 
-          <a routerLink="/shopcart" >Carrito <i class="fas fa-shopping-cart"></i></a>
+          <a routerLink="/shopcart" >Carrito ({{cart}})<i class="fas fa-shopping-cart"></i></a>
           <a routerLink="/session" >Ingresar</a>
           <a routerLink="/session" >Crear cuenta</a>
+          
         </div>
     </nav>
 
-    <h1>Alquila tu película favotita</h1>
+    <h1>{{id}}</h1>
+
+    <h1>Alquila tu película favorita</h1>
     <div class="films">
         <h2>Estrenos</h2>
         <carousel [minSwipeDistance]="50" [cellsToShow]="5" [height]=300>
-            <div class="carousel-cell">
+            <div class="carousel-cell" *ngFor="let film of DebutFilms;">
                 <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="https://picsum.photos/700/400?random" class="card-img-top">
                     <div class="card-body">
-                      <h5 class="card-title">title</h5>
+                      <h5 class="card-title">{{film.title}}</h5>
                       <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                      <button (click)=addCarrito(film.filmId)><i class="fas fa-cart-plus"></i></button>
                     </div>
                   </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                </div>
             </div>
         </carousel>
         <br>
         <h2>Las más rentada en la última semana</h2>
         <carousel [minSwipeDistance]="50" [cellsToShow]="5" [height]=300>
-            <div class="carousel-cell">
+            <div class="carousel-cell" *ngFor="let film of LastRental">
                 <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="https://picsum.photos/700/400?random" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">title</h5>
+                      <h5 class="card-title">{{film.title}}</h5>
                       <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                      <button (click)=addCarrito(film.filmId)><i class="fas fa-cart-plus"></i></button>
                     </div>
                   </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                </div>
             </div>
         </carousel>
         <br>
         <h2>Las más rentadas de todos los tiempos</h2>
         <carousel [minSwipeDistance]="50" [cellsToShow]="5" [height]=300>
-            <div class="carousel-cell">
+            <div class="carousel-cell" *ngFor="let film of MaxRental">
                 <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="https://picsum.photos/700/400?random" class="card-img-top">
                     <div class="card-body">
-                      <h5 class="card-title">title</h5>
+                      <h5 class="card-title">{{film.title}}</h5>
                       <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                      <button (click)=addCarrito(film.filmId)><i class="fas fa-cart-plus"></i></button>
                     </div>
                   </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                  </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="card" style="width: 18rem; height: 19rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">title</h5>
-                      <p class="card-text">Estado: Agotado</p>
-                      <a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                    </div>
-                </div>
             </div>
         </carousel>
     </div>

@@ -1,1 +1,53 @@
-<p>shop-cart works!</p>
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a (click)="back()">Inicio</a>
+          <a routerLink="/session" >Ingresar</a>
+          <a routerLink="/session" >Crear cuenta</a>
+          
+        </div>
+    </nav>
+
+    <h1>Carrito de películas</h1>
+    
+    <div *ngIf="Carrito.length==0;  else Cart">
+      <h3>No tienes ninguna película añadida a tu carrito</h3>
+    </div>
+
+    <ng-template #Cart>
+      <div class="row">
+        <div class="col">
+          <form action="/action_page.php">
+            <label for="datemin">Fecha de devolucion:</label>
+            <input type="date" [(ngModel)]="datereturn" id="returnDate" name="returnDate" min={{td}} max={{dmax}} ><br><br>
+            <button (click)="Calculate()">Calcular</button>
+          </form>
+        </div>
+        <div class="col">
+          <h4>Tota: {{sum}} USD</h4>
+          <h4>Dscto: {{des}} USD</h4>
+          <button (click)="routingPay()">Pagar</button>
+        </div>
+      </div>
+
+      <div class="shop-cart">
+        <h3>Has agragado las siguientes películas a tu carrito</h3>
+        <br><br>
+        <div class="card mb-3" style="max-width: 1400px;" *ngFor="let films of Carrito;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/700/400?random" class="img-fluid rounded-start" >
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <h5 class="card-title">{{films.title}}</h5>
+                <p class="card-text">{{films.description}}</p>
+                <button (click)=deleteFilm(films.filmId)><i class="fas fa-minus-circle"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </ng-template>
+
+</div>
