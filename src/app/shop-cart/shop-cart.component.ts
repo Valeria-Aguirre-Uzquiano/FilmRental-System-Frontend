@@ -19,8 +19,8 @@ export class ShopCartComponent implements OnInit {
   td!: string;
   dmax!: string;
   @Input() datereturn!: string;
-  sum: number = 0;
-  des: number = 0;
+  sum: number = 0.0;
+  des: number = 0.0;
   
 
   Carrito: Film[] = [];

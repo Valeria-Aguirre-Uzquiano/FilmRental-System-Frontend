@@ -1,13 +1,13 @@
 <div class="container">
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
         <div class="container-fluid">
-          <a (click)="back()">Inicio</a>
+          <a (click)="back()" class="link">Inicio</a>
           <a routerLink="/session" >Ingresar</a>
           <a routerLink="/session" >Crear cuenta</a>
           
         </div>
     </nav>
-
+    <br><br>
     <h1>Carrito de películas</h1>
     
     <div *ngIf="Carrito.length==0;  else Cart">
@@ -15,10 +15,10 @@
     </div>
 
     <ng-template #Cart>
-      <div class="row">
-        <div class="col">
-          <form action="/action_page.php">
-            <label for="datemin">Fecha de devolucion:</label>
+      <div class="row" id="renta">
+        <div class="col text-start">
+          <form>
+            <label for="datemin">Fecha de devolución:</label>&nbsp;&nbsp;
             <input type="date" [(ngModel)]="datereturn" id="returnDate" name="returnDate" min={{td}} max={{dmax}} ><br><br>
             <button (click)="Calculate()">Calcular</button>
           </form>
@@ -42,7 +42,7 @@
               <div class="card-body text-start">
                 <h5 class="card-title">{{films.title}}</h5>
                 <p class="card-text">{{films.description}}</p>
-                <button (click)=deleteFilm(films.filmId)><i class="fas fa-minus-circle"></i></button>
+                <button (click)=deleteFilm(films.filmId) class="delete">Quitar película  <i class="fas fa-minus-circle"></i></button>
               </div>
             </div>
           </div>

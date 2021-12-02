@@ -15,3 +15,25 @@
 .col{
     flex-direction: column;
 }
+
+h1{
+    font-family: 'Franklin Gothic Medium';
+}
+
+h3{
+    font-family: 'Rockwell';
+    background-color: #5B5D52;
+    color: #F6F0E7;
+    border-radius: 10px;
+    padding: 0px 10px 0px 10px;
+}
+
+h2{
+    margin: auto;
+    background-color: #C7C4B1;
+    font-family: 'Rockwell';
+    color: #5B5D52;
+    border-radius: 10px;
+    padding: 0px 10px 0px 10px;
+    width: 30%;
+}

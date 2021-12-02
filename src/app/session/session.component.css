@@ -11,13 +11,15 @@
     border-style: solid;
     border-width: 0px 10px 0px 0px;
     border-color: #00AFBC;
+    max-height: 630px;
 }
 
 #login{
     border-style: solid;
     border-width: 0px 0px 0px 10px;
     border-color: #C7C4B1;
-    margin-bottom: 30px;
+    padding: 20px;
+
 }
 
 .form-control{
@@ -26,6 +28,7 @@
 }
 
 #AddForm{
+    max-height: 325px;
     background-color: #C7C4B1;
     padding: 20px;
     text-align: left;
@@ -34,4 +37,35 @@
 .form-select {
     margin-top: 10px;
     height: 40px;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium';
+}
+
+h3{
+    font-family: 'Georgia Pro';
+}
+h4{
+    font-family: 'Lucida Bright';
+}
+
+button{
+    width: 20%;
+    background: none;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #00AFBC;
+    color: #00AFBC;
+    padding: 5px;
+    font-family: 'Lucida Sans Unicode';
+}
+
+button:hover {
+    width: 20%;
+    background-color: #00AFBC;
+    border-style: none;
+    border-radius: 20px;
+    color: white;
+    padding: 5px;
 }

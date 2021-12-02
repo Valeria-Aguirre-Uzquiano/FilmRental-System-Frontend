@@ -7,3 +7,61 @@
 .films{
     text-align: left;
 }
+
+.navbar{
+    margin-top: 1%;
+    background-color: #00AFBC;
+    border-radius: 20px;
+}
+
+a{
+    color: #5B5D52;
+    font-family: 'Lucida Sans Typewriter';
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F6F0E7;
+    text-decoration: underline;
+    font-family: 'Lucida Sans Typewriter';
+}
+
+h1{
+    font-family: 'Bahnschrift SemiBold';
+}
+
+h2{
+    width: 40%;
+    font-family: 'Trattatello';
+    background-color: #C7C4B1;
+    color: #5B5D52;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+}
+
+h5,p{
+    font-family: 'Trattatello';
+}
+
+button{
+    width: 20%;
+    background: none;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #00AFBC;
+    color: #00AFBC;
+    padding: 5px;
+}
+
+button:hover {
+    width: 20%;
+    background-color: #00AFBC;
+    border-style: none;
+    border-radius: 20px;
+    color: white;
+    padding: 5px;
+}
+
+i{
+    font-size: 20px;
+}
