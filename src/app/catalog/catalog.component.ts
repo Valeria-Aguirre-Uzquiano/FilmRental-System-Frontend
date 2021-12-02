@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'; 
 import { HttpClient } from '@angular/common/http';
-import { Film } from '../ts/film';
+import { Film } from '../ts/Film';
 
 @Component({
   selector: 'app-catalog',
@@ -9,7 +9,7 @@ import { Film } from '../ts/film';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  id: string | null | undefined;
+  id!: string | null | undefined;
   DebutFilms: Film[] = [];
   LastRental: Film[] = [];
   MaxRental: Film[] = [];
@@ -31,8 +31,25 @@ export class CatalogComponent implements OnInit {
     this.getLastRental(httprequest2);
     this.getMaxRental(httprequest3);
     this.getShopCart();
+    this.loadLocalStorage();
     //console.log( httprequest);
   } 
+
+  loadLocalStorage(){
+    var customer_ID: string = '0';
+    var name: string = '';
+    var storage_ID: string = '';
+    if(this.id == '20'){
+      storage_ID = '1';
+    }else if(this.id == '8'){
+      storage_ID = '2';
+    }
+
+    localStorage.setItem('customer_ID', customer_ID);
+    localStorage.setItem('customer', name);
+    localStorage.setItem('storage_ID', storage_ID);
+    localStorage.setItem('country_ID',String(this.id));
+  }
 
   getDebutFilms(httprequest: string): void{
     this.http.get<any>(httprequest).subscribe(
@@ -41,8 +58,8 @@ export class CatalogComponent implements OnInit {
         //console.log("films = "+ this.DebutFilms);
       } 
     );
-    
-  }
+  
+  }  
 
   getLastRental(httprequest: string): void{
     this.http.get<any>(httprequest).subscribe(

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Location} from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router'; 
-import { Film } from '../ts/film';
+import { Film } from '../ts/Film';
 import { Customer } from '../ts/Customer';
 
 @Component({
@@ -148,11 +148,12 @@ export class ShopCartComponent implements OnInit {
   }
 
   routingPay(){
-    console.log("cus id = "+ this.user.customer_id);
-    if(this.user.customer_id!=undefined){
-      this.router.navigate(['/payment']);
-    }else{
+    var cus = localStorage.getItem("customer_ID");
+    console.log("cus id = "+ cus);
+    if(cus == '0'){
       this.router.navigate(['/session']);
+    }else{
+      this.router.navigate(['/payment']);
     }
   }
 }

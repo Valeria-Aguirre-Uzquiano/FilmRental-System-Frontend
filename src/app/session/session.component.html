@@ -5,37 +5,35 @@
         <div class="col" id="sign_in">
             <h3>Crear Cuenta</h3>
             <form id="Sigin-form">
-                <input type="text" class="form-control" placeholder="Nombres" aria-label="firstname" id="firstname">
-                <input type="text" class="form-control" placeholder="Apellidos" aria-label="lastname" id="lastname">
-                <input type="email" class="form-control" placeholder="Correo" aria-label="email" id="email">
+                <input type="text" [(ngModel)]="firstname"  name="firstname" class="form-control" placeholder="Nombres" aria-label="firstname" id="firstname">
+                <input type="text" [(ngModel)]="lastname"  name="lastname" class="form-control" placeholder="Apellidos" aria-label="lastname" id="lastname">
+                <input type="email" [(ngModel)]="email"  name="email" class="form-control" placeholder="Correo" aria-label="email" id="email">
                 <form id="AddForm">
                     <h4>Dirección de envío:</h4>
-                    <input type="text" class="form-control" placeholder="Dirección" aria-label="address" id="address">
-                    <input type="text" class="form-control" placeholder="Dirección alternativa" aria-label="address2" id="address2">
+                    <input type="text" [(ngModel)]="address"  name="address" class="form-control" placeholder="Dirección" aria-label="address" id="address">
+                    <input type="text" [(ngModel)]= "address2"  name="address2" class="form-control" placeholder="Dirección alternativa" aria-label="address2" id="address2">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Distrito" aria-label="district" id="district">
-                        <select class="form-select form-select-md" aria-label="city" id="city">
+                        <input type="text" [(ngModel)]="district"  name="district" class="form-control" placeholder="Distrito" aria-label="district" id="district">
+                        <select class="form-select form-select-md" aria-label="city" id="city" [(ngModel)]="selected"  name="selected">
                             <option selected>Seleccione su ciudad</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option *ngFor="let c of cities">{{c}}</option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="código postal" aria-label="postal_code" id="postal_code">
-                        <input type="text" class="form-control" placeholder="Teléfono" aria-label="phone" id="phone">
+                        <input type="text" class="form-control"  [(ngModel)]="postal_code"  name="postal_code"  placeholder="código postal" aria-label="postal_code" id="postal_code">
+                        <input type="text" class="form-control"  [(ngModel)]="phone"  name="phone"  placeholder="Teléfono" aria-label="phone" id="phone">
                     </div>
-                    <button>Definir</button>
+                    <button (click)="InsertAdd()">Definir</button>
                 </form>  
-                <button>Registrarse</button>
+                <button (click)="InsertCustomer()">Registrarse</button>
             </form>
         </div>
         <div class="col" id="login">
             <h3>Ingresar</h3>
             <form id="LoginForm">
-                <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="username" id="username">
+                <input type="text"  [(ngModel)]="username"  name="username" class="form-control" placeholder="Nombre de usuario" aria-label="username" id="username">
                 <input type="password" class="form-control" placeholder="password" aria-label="password" id="password">
-                <button>Ingresar</button>
+                <button (click)="Login()">Ingresar</button>
             </form>
         </div>
     </div>
